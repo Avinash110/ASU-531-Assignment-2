@@ -59,6 +59,7 @@ void function_3()
 
 int main()
 {
+    init_ready();
     start_thread(&function_1);
     start_thread(&function_2);
     start_thread(&function_3);

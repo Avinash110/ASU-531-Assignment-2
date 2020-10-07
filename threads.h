@@ -6,17 +6,17 @@ queue *ReadyQ = NULL;
 TCB_t *Curr_Thread = NULL;
 
 int thread_id = 0;
+
+void init_ready(){
+    ReadyQ = newQueue();
+}
+
 void start_thread(void (*function)(void))
 {
     void *stack = malloc(STACK_SIZE);
     TCB_t *item = malloc(sizeof(TCB_t));
     init_TCB(item, function, stack, STACK_SIZE);
     item->thread_id = thread_id++;
-    if (ReadyQ == NULL)
-    {
-        // printf("creating new queue");
-        ReadyQ = newQueue();
-    }
     AddQueue(ReadyQ, item);
     // allocate a stack (via malloc) of a certain size (choose 8192)
     //  allocate a TCB (via malloc)
