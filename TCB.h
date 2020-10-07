@@ -1,4 +1,5 @@
 #include <ucontext.h>
+#include <string.h>
 
 // typedef is used to avoid using the keyword struct while using TCB_t..keeping the typedef alias same for better readability.
 // variable names are as mentioned in the requirements
